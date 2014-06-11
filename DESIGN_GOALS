@@ -1,0 +1,49 @@
+Consistent test identifiers (focus tests easily)
+Trackable test identifiers (incl. change records - follow the history of a test)
+
+Event driven runner/formatter.
+
+Two primatives: Test Participant, Assertion.
+Both parameterizable.
+Both self identifying.
+Assertion is composable. (TestCase === Assertion)
+Assertion composition controls Participant lifecycle (before/after aot :each/:all)
+  e.g. inspections(thing) do |thing|
+         is_a_page(thing)
+  Which also allows for random inspections and 10% re-run to test the R/O contract
+
+Assertion is the Janice definition: each assertion also defines a mock value. Either because
+ == (and so expectation is the mock) or like(value) which both doublechecks
+ that assert, and provides stub value.
+
+Injecting mocks - easy when part of a Participant setup (
+Thing.new(other_participant) but e.g. ActiveRecord - involves stubbing of
+constants... Other cases?
+
+Participant transitions - probably a code smell, but something like:
+  other.name
+  other.name = "Jarvis"
+  other.name
+
+  needs to be handled.
+
+Related: change Assertions. analogy to rspec expect{ ... }.to change{ ... }
+
+Which participants are live and which mocks? Cordons: assign components to
+participants, build lists of components, run janice <cordon-name> - only run
+tests for components inside the cordon, mock everything else.
+
+Cordons can reference components or other cordons, so "whole_app: [
+controllers, views, models, libs ]"
+
+Synthetic cordons: run cordons: "controllers" and "views" - separately and
+together - test results should be the same, otherwise, there's a problem in the
+
+Some stuff that's come across my radar while thinking about this:
+http://xunitpatterns.com/Four%20Phase%20Test.html
+  Suggestive of architecture
+
+http://blog.testdouble.com/posts/2014-01-25-the-failures-of-intro-to-tdd.html
+  Janice would support and encourage the "Successful approach" at the end:
+
+  A Janice Mock would provide 60%-ish of the test framework for its implementation. And cover the cases where interfaces change

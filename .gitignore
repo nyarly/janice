@@ -1,1 +1,10 @@
 *.sw?
+.bundle/
+.cadre/
+core-design.jpg
+core-design.svg
+corundum/
+errors.err
+last_run
+loop/
+old-lib/

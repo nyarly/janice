@@ -18,3 +18,47 @@ But what if every Mock/Fixture were the consequence of a test?  Then the
 assumptions you're making will be checked for real.  And the requirements of
 your tests for their mocks will enforce and guide a testing dicipline on the
 units.
+
+
+
+Basic premise is that any matcher is a mock - of this form:
+
+  double_object responds_to with_args and_returns
+
+  both "with_args" and "and_returns" take a Janice.
+
+  The simplest Janice is a literal.
+
+
+There's an integration mode where the call expectations are examined as they go by
+
+
+
+
+
+Each JaniceThing can be in a test run in two modes:
+  Live (a thing being tested)
+  Fake (a fake whose return values are being dictated by Janice)
+    (open question: expected calls?)
+
+  method_call.returns(JaniceThing) - in test mode, we check the assertions. In
+  fake mode, we stub the method to return the mock
+
+Each JaniceThing has a :domain - "application" "database" etc.
+  Janice runs have cordons established around a set of domains - anything inside the cordon will be "live"
+  In some sense, a domain should be "things that should sensibly be tested together"
+  By implication: domains should have groupings so that they can be easily cordoned.
+
+State changes:
+  A JaniceThing can become another one based on an event in the system.
+  That basically means: there needs to be a "StateChange" that looks like:
+  (recipient received message) -> (JaniceThing(s) become other JaniceThings)
+
+From "Magic Tricks of Testing" (Sandi Metz)
+https://speakerdeck.com/skmetz/magic-tricks-of-testing-railsconf
+
+Respective to the class under test:
+assert the results of incoming queries (inspection of the JaniceThing)
+assert the direct public side effects of incoming commands (StateChanges)
+expect outgoing commands (which means we want to assert messages were received)
+(ignore outgoing queries, queries and commands sent to self)

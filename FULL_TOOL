@@ -1,0 +1,26 @@
+If Janice were to become a complete test runner, some warts of RSpec I'd like to address
+
+meta_programming at all
+
+expect{}.not_to raise_error -> both hides the error and swallows assertions inside
+
+hard to specialize matchers - e.g. be_empty should be a special case of == [] (or == "" or == {})
+  so that in the case of a fail, you find out what was in there.
+
+nestable expect{}.side_effect (with a Rack::Builder style tool for setting them up)
+
+tests, and test groups should be objects, not classes.
+
+FIT style NxM testing.
+Only "include_examples" or "include_setup" (although the Janice approach maybe makes that necessary or redundant)
+
+Three Kinds of Test
+reads are correct - they return the right thing
+calls out are correct - they ask for the right thing
+
+mock-version receives message for commands
+
+FSM mocking
+
+  You mock thing M, but it's behavior should change when msg X
+  Mocks related by "when{ ... }.becomes(other)"
