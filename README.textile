@@ -2,26 +2,17 @@ h1. Janice
 
 !{float: right;padding-left: 1em}janice-logo.png!
 
-Janice is an experimental testing framework that results from a series of
-observations:
+Janice is an experimental testing framework that results from a series of observations:
 
-Real programs, sadly, depend on side effects and persistence.  Relational
-Transparency would be lovely, but there's this real world knocking at the door
-and demanding rent.
+Real programs, sadly, depend on side effects and persistence.  Relational Transparency would be lovely, but there's this real world knocking at the door and demanding rent.
 
-Mocks can embed horrible brittleness in a test suite.  They tend to encode
-assumptions about the systems they represent.
+Mocks can embed horrible brittleness in a test suite.  They tend to encode assumptions about the systems they represent.
 
-Fixtures require that we know all kinds of things about the systems they
-represent.  In some ways, they can be as brittle as Mocks.
+Fixtures require that we know all kinds of things about the systems they represent.  In some ways, they can be as brittle as Mocks.
 
-Integration tests are slow, but a necessary evil, since ultimately they're the
-only way to test the assumptions we encode in mocks or fixtures.
+Integration tests are slow, but a necessary evil, since ultimately they're the only way to test the assumptions we encode in mocks or fixtures.
 
-But what if every Mock/Fixture were the consequence of a test?  Then the
-assumptions you're making will be checked for real.  And the requirements of
-your tests for their mocks will enforce and guide a testing dicipline on the
-units.
+But what if every Mock/Fixture were the consequence of a test?  Then the assumptions you're making will be checked for real.  And the requirements of your tests for their mocks will enforce and guide a testing dicipline on the units.
 
 h2. Enter Janice
 
@@ -44,15 +35,11 @@ bc.. Janice.explain do
   end
 end
 
-p. For the most part, that looks like any test code. For dumb array
-manipulation stuff, anyway. The trick is that the definitions are decoupled
-from the actual execution of tests, so that at any point in the test structure,
-other parts of the structure can be mocked out.
+p. For the most part, that looks like any test code. For dumb array manipulation stuff, anyway. The trick is that the definitions are decoupled from the actual execution of tests, so that at any point in the test structure, other parts of the structure can be mocked out.
 
 h2. Current State
 
-The current state of Janice is that it functions as a minimal testing
-framework. You can run something like
+The current state of Janice is that it functions as a minimal testing framework. You can run something like
 
 bc. janice tests/*
 
@@ -60,8 +47,7 @@ and get output like
 
 bc. .......FF......F.....
 
-Which is sort of the bare minimum. While the test descriptions are ready to
-begin the mocks-from-tests work, that part hasn't been written yet.
+Which is sort of the bare minimum. While the test descriptions are ready to begin the mocks-from-tests work, that part hasn't been written yet.
 
 h2. Future Steps
 
@@ -69,15 +55,10 @@ Obviously the mocks-from-tests runner needs to be written.
 
 There's two aspects to test definition that are lacking:
 
-# verifications that exercises function correctly (e.g. that changes occur, or
-  that other exercises are triggered.)
-# example values for test subjects - sometimes testing every message is
-  onerous.
+# verifications that exercises function correctly (e.g. that changes occur, or that other exercises are triggered.)
+# example values for test subjects - sometimes testing every message is onerous.
 
-Verifing runners - are all my tests set up correctly? Can, for instance, all
-verifications be run twice in random orders without affecting their results?
-
-
+Verifing runners - are all my tests set up correctly? Can, for instance, all verifications be run twice in random orders without affecting their results?
 
 h2. Some Inspirational Reference
 
@@ -91,7 +72,4 @@ expect outgoing commands (which means we want to assert messages were received)
 
 h2. Acknowledgements
 
-A great deal of the pattern of testing that Janice implements was developed
-while using RSpec, so Janice owes a huge debt to David Chelimsky, Myron Marston
-and the whole RSpec crew. Also: for the impetus to finally design and write the
-thing.
+A great deal of the pattern of testing that Janice implements was developed while using RSpec, so Janice owes a huge debt to David Chelimsky, Myron Marston and the whole RSpec crew. Also: for the impetus to finally design and write the thing.
