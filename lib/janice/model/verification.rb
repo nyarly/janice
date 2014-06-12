@@ -1,5 +1,11 @@
 module Janice
   class Verification
+    module SetDSL
+      def eql(arg)
+        set.add(Verification::Eql.new(arg))
+      end
+    end
+
     class Eql < Verification
       def initialize(expected)
         @expected = expected
@@ -7,6 +13,12 @@ module Janice
 
       def match?(actual)
         return @expected.eql?(actual)
+      end
+    end
+
+    module SetDSL
+      def adhoc(&block)
+        set.add(Verification::Adhoc.new(&block))
       end
     end
 

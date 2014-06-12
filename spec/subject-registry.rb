@@ -13,6 +13,10 @@ describe Janice::SubjectRegistry do
     expect(registry["whatever"]).to be_a(Janice::Subject)
   end
 
+  it "should name the Subject" do
+    expect(registry["whatever"].name).to eq("whatever")
+  end
+
   it "should consistently return the same subject" do
     expect(registry["another name"]).to equal(registry["another name"])
   end

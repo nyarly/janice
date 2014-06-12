@@ -23,7 +23,7 @@ describe Janice::Exercise do
       exercise.action do |subject, registry|
         subject + 1
       end
-      exercise.consequent = Janice::Subject.new
+      exercise.consequent = Janice::Subject.new("a before")
       exercise
     end
 
@@ -35,11 +35,11 @@ describe Janice::Exercise do
   describe "with antecedent, action and consequent" do
     let :exercise do
       exercise = Janice::Exercise.new
-      exercise.antecedent = Janice::Subject.new
+      exercise.antecedent = Janice::Subject.new("before")
       exercise.action do |subj, registry|
         subj + 1
       end
-      exercise.consequent = Janice::Subject.new
+      exercise.consequent = Janice::Subject.new("after")
       exercise
     end
 
@@ -49,13 +49,13 @@ describe Janice::Exercise do
 
     it "should reject reassignment of its antecedent" do
       expect {
-        exercise.antecedent = Janice::Subject.new
+        exercise.antecedent = Janice::Subject.new("before two")
       }.to raise_error(Janice::DescriptionError)
     end
 
     it "should reject reassignment of its consequent" do
       expect {
-        exercise.consequent = Janice::Subject.new
+        exercise.consequent = Janice::Subject.new("after two")
       }.to raise_error(Janice::DescriptionError)
     end
 

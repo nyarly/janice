@@ -9,7 +9,7 @@ describe Janice::Runner::Live do
   end
 
   let :listener do
-    instance_double("Janice::EventListener")
+    Janice::DotsReporter.new(StringIO.new)
   end
 
   let :runner do

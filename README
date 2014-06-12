@@ -62,3 +62,11 @@ assert the results of incoming queries (inspection of the JaniceThing)
 assert the direct public side effects of incoming commands (StateChanges)
 expect outgoing commands (which means we want to assert messages were received)
 (ignore outgoing queries, queries and commands sent to self)
+
+
+## Acknowledgements
+
+A great deal of the pattern of testing that Janice implements was developed
+while using RSpec, so Janice owes a huge debt to David Chelimsky, Myron Marston
+and the whole RSpec crew. Also: for the impetus to finally design and write the
+thing.

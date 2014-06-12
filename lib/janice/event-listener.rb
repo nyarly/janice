@@ -1,12 +1,6 @@
 module Janice
   class EventListener
-    def verification_accept(event)
-
-    end
-
-    def verification_reject(event)
-
-    end
+    include Events::ListenerMethods
   end
 
   class DotsReporter < EventListener

@@ -1,8 +1,10 @@
 module Janice
   class Subject
     attr_accessor :example
+    attr_reader :name
 
-    def initialize
+    def initialize(name)
+      @name = name
       @antecedent_set = {}
       @consequent_set = {}
       @verifiers = {}

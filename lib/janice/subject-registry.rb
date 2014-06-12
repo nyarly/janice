@@ -4,7 +4,7 @@ module Janice
   class SubjectRegistry
     def initialize
       @subjects = Hash.new do |h,k|
-        h[k] = Subject.new
+        h[k] = Subject.new(k)
       end
     end
 
@@ -13,7 +13,7 @@ module Janice
     end
 
     def root_void
-      @root_void ||= Subject.new
+      @root_void ||= Subject.new("The Void Subject")
     end
   end
 end

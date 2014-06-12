@@ -2,7 +2,7 @@ require 'janice/model/subject'
 
 describe Janice::Subject do
   let :subject do
-    Janice::Subject.new
+    Janice::Subject.new('one')
   end
 
   let :producer do

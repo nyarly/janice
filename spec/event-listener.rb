@@ -9,16 +9,24 @@ describe Janice::DotsReporter do
     Janice::DotsReporter.new(output)
   end
 
+  let :subject do
+    double("subject")
+  end
+
+  let :value do
+    double("value")
+  end
+
   let :verification do
     double("Verification")
   end
 
   let :accept_event do
-    Janice::Events::Accept.new(verification)
+    Janice::Events::Accept.new(subject, value, verification)
   end
 
   let :reject_event do
-    Janice::Events::Reject.new(verification)
+    Janice::Events::Reject.new(subject, value, verification)
   end
 
   it "should output stuff" do
