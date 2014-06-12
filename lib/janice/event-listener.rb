@@ -17,5 +17,9 @@ module Janice
     def verification_reject(event)
       output.print("F")
     end
+
+    def finish_run(event)
+      output.puts
+    end
   end
 end

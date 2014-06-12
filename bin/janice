@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require 'janice/command-line'
+Janice::CommandLine.new(ARGV).run

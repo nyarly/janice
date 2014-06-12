@@ -1,0 +1,5 @@
+require 'janice/model/inspection'
+require 'janice/model/subject'
+require 'janice/model/verification-set'
+require 'janice/model/exercise'
+require 'janice/model/verification'

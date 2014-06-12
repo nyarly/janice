@@ -57,16 +57,15 @@ describe Janice::Runner::Live do
     expect(runner.build_exercises_list.length).to eq(4)
   end
 
-  it "should generate a verification pass event" do
-    #verification accept
-    #verification reject
+  it "should generate a slew of event" do
     expect(listener).to receive(:exercise_list_built).once
     expect(listener).to receive(:start_run).once
-    allow(listener).to receive(:verifying_subject)
-    allow(listener).to receive(:verification)
+    allow( listener).to receive(:verifying_subject)
+    allow( listener).to receive(:verification)
     expect(listener).to receive(:verification_accept).with(match(be_a(Janice::Event))).exactly(3).times
     expect(listener).to receive(:verification_reject).with(match(be_a(Janice::Event))).once
     expect(listener).to receive(:finish_run).once
+
     runner.start
   end
 end

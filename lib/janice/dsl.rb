@@ -1,3 +1,6 @@
+require 'janice/model'
+require 'janice/subject-registry'
+
 module Janice
   def self.context
     @context ||= Context.new
