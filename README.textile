@@ -88,4 +88,4 @@ thing.
 
 h3. Hosting
 
-Primary is on Github, with mirrors and testing on internal Gitlab servers
+Primary is on Github, with mirrors and testing on internal Gitlab servers, try 1
