@@ -1,6 +1,5 @@
 h1. Janice
 
-
 !{float: right;padding-left: 1em}janice-logo.png!
 
 Janice is an experimental testing framework that results from a series of observations:
