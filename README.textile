@@ -2,6 +2,7 @@ h1. Janice
 
 !{float: right;padding-left: 1em}janice-logo.png!
 
+
 Janice is an experimental testing framework that results from a series of observations:
 
 Real programs, sadly, depend on side effects and persistence.  Relational Transparency would be lovely, but there's this real world knocking at the door and demanding rent.
