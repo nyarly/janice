@@ -1,6 +1,4 @@
-If Janice were to become a complete test runner, some warts of RSpec I'd like to address
-
-meta_programming at all
+No meta_programming at all
 
 expect{}.not_to raise_error -> both hides the error and swallows assertions inside
 

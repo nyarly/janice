@@ -1,0 +1,9 @@
+Exercise verifiers
+Subject examples (exemplars?)
+ (control over value, mock, exemplar(fake)? - domains/modules/components?)
+
+Teardowns
+Buildup/teardown events
+
+MockingRegistry
+ExampleRegistry
